@@ -1,0 +1,14 @@
+
+  a{
+    font-family: 'Warnes', cursive;
+    font-size: 30px;
+    margin: 0;
+    padding: 15px 25px;
+    background-color: #0a0a0a;
+    background: linear-gradient(#000000);
+    color: #ffffff;
+    border-color: transparent;
+    outline: 0;
+    cursor: pointer;
+   
+  }

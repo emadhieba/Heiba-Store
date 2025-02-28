@@ -1,0 +1,72 @@
+
+
+
+<div class="row-lg-12 pt-lg-5 mb-lg-5 pt-sm-5 mb-sm-5 w-90 h-25">
+
+  <div class="row-lg-12 ">
+    <div class="row" id="33"  >
+      <div class="multi-button" >
+    
+        <button>catougres</button>
+      @for (item of catogres; track item) {    
+          <button value="{{item.id}}" on (click)="filterCatogres($event)">{{item.name}}</button>
+      }
+    </div>
+    </div>
+  </div>
+
+  @if (loder) {
+    <div class="row p-5">
+      @for (item of products; track item.id) {
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="container">
+            <div class="wrapper">
+              <div class="bg-transparent ratio-16x9 fs-5">
+                <img [src]="item.images" alt="Product Image" width="100%" class="banner-image">
+              </div>
+              <h1>{{ item.title }}</h1>
+              <p>{{ item.slug }} <br /> {{ item.price }}$</p>
+            </div>
+            <div class="button-wrapper">
+              <button class="btn outline bg-black" value="{{item.id}}"  (click)="detailsProduct($event)" >DETAILS</button>
+              <button class="btn fill bg-black" (click)="addToCart(item) " >BUY NOW</button>
+            </div>
+          </div>
+        </div>
+        
+@for(item1 of DataDetails; track item1.id){
+   
+
+  @if (selectedProduct && item1.id == item.id ) {
+    <div class="overlay" >
+      <div class="card product-details-card p-4 mb-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <img [src]="item1.images" alt="Product Image" class="img-fluid rounded">
+          </div>
+          <div class="col-lg-8 " >
+            <h2>{{ item1.title }} </h2>
+            <p><strong>Brand:</strong> {{ item1.slug }} </p>
+            <p><strong>Price:</strong> {{ item1.price }}$</p>
+            <p><strong>Description:</strong> {{ item1.description }}</p>
+            <button class="btn btn-dark" (click)="closeProductDetails()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }       
+  }
+      }
+    </div>
+  }
+
+//loder
+
+  @if (!loder) {
+    <div class="text-center w-100 p-5">
+      <app-spiner></app-spiner>
+    </div>
+
+   
+  }
+</div>

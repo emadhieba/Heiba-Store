@@ -21,15 +21,22 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+              "src/favicon.ico",
+              "src/assets",
+         "src/manifest.webmanifest"
+                  ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",      
+              "src/styles.css",
+               "node_modules/mdb-ui-kit/css/mdb.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+                "node_modules/mdb-ui-kit/js/mdb.es.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -45,7 +52,10 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+
             },
             "development": {
               "optimization": false,
@@ -79,15 +89,19 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "src/favicon.ico",
+            "src/assets",
+           "src/manifest.webmanifest"
+                      ],
             "styles": [
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+                  
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+
+             
+            ]
           }
         }
       }

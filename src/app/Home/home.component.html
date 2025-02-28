@@ -1,0 +1,118 @@
+
+
+  <header class="section__container header__container" id="home">
+    <div class="header__image">
+      <img [src]="Sale_product[2].images"  />
+      <img [src]="Sale_product[2].images" class="header-bg" />
+      <div class="header__image__content">
+        <h4>Price: ${{Sale_product[2].price}} </h4>
+        <button class="btn" (click)="addToCart(Sale_product[2]) ">Add to cart</button>
+      </div>
+    </div>
+    <div class="header__content">
+      <h1>Bluetooth<br />Headphone</h1>
+      <p>
+        Dive into our curated selection of premium Bluetooth headphones,
+        crafted for the ultimate listening experience.
+      </p>
+    </div>
+  </header>
+
+  <section class="product" id="product">
+    <div class="section__container product__container">
+      <div class="product__grid">
+        <div class="product__image">
+          <img [src]="Sale_product[7].images" />
+        </div>
+        <div class="product__content">
+          <div class="product__card">
+            <h4>Bluetooth</h4>
+            <p>Bluetooth 4.2 - ACC codec</p>
+            <a href="products/">Learn More</a>
+          </div>
+          <div class="product__card">
+            <h4>Quality sound</h4>
+            <a href="products/">Learn More</a>
+          </div>
+          <div class="product__card">
+            <div class="product__colors">
+              <div><i class="ri-check-line"></i></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <p>Available colors</p>
+          </div>
+        </div>
+      </div>
+      <div class="product__btn" (click)="addToCart(Sale_product[7]) ">
+        <button class="btn">Add to cart</button>
+      </div>
+    </div>
+
+
+
+  </section>
+  <div class = "row m-5 m-6">
+
+    <div class=" col m-5 ">
+      <a class="card1" href="products/">
+       <p>Catogres</p>
+       <p class="small">To see the product sections in the heiba store, click here</p>
+       <div class="go-corner" href="products/">
+         <div class="go-arrow">
+           →
+         </div>
+       </div>
+     </a>
+    </div>
+    <!-- From Uiverse.io by Prince4fff --> 
+    <div class="col m-5">
+      <a class="card1" href="products/">
+       <p>Heiba Store Products</p>
+       <p class="small">To see all products in heiba store click here</p>
+       <div class="go-corner" href="products/">
+         <div class="go-arrow">
+           →
+         </div>
+       </div>
+     </a>
+    </div>
+    <div class="col m-5">
+      <a class="card1" href="Fotter/">
+       <p>About As</p>
+       <p class="small">To reach heiba store customer service, click here.</p>
+       <div class="go-corner" href="Fotter/">
+         <div class="go-arrow">
+           →
+         </div>
+       </div>
+     </a>
+    </div>
+  </div>
+    
+
+<!-- <section class="section__container store__container" id="store">
+  <h2>JBL beats design</h2>
+  <p>
+    Explore our JBL Beats Design collection, where style meets superior
+    audio performance.
+  </p>
+ 
+    <div class="swiper">
+   
+      
+
+        <div class="swiper-slide">
+          @for(item of Sale_product; track item.id){
+          <div class="store__card">
+            <h4>{{item.title}}</h4>
+            <img [src]="item.images" alt="store" />
+            <h3> price: {{item.price}} $</h3>
+          </div>
+        }
+        </div>
+            <div class="swiper-pagination"></div>
+    </div>
+</section> -->
