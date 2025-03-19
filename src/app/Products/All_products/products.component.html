@@ -1,20 +1,26 @@
 
-
-
 <div class="row-lg-12 pt-lg-5 mb-lg-5 pt-sm-5 mb-sm-5 w-90 h-25">
 
   <div class="row-lg-12 ">
-    <div class="row" id="33"  >
-      <div class="multi-button" >
-    
-        <button>catougres</button>
-      @for (item of catogres; track item) {    
-          <button value="{{item.id}}" on (click)="filterCatogres($event)">{{item.name}}</button>
-      }
-    </div>
+    <div class="row-lg-12" id="33"  >
+      <div class="title-container">
+        <h1 class="title">Categories</h1>
+      </div>
+      
+
+      <div class="multi-button-container">
+        <div class="multi-button">
+       
+          @for (item of catogres; track item) {    
+            <button class="btn" [value]="item.id" (click)="filterCatogres($event)">
+              {{ item.name }}
+            </button>
+          }
+        </div>
+      </div>
     </div>
   </div>
-
+  <div id="customToast" class="custom-toast">Item added to cart!</div>
   @if (loder) {
     <div class="row p-5">
       @for (item of products; track item.id) {
@@ -30,6 +36,7 @@
             <div class="button-wrapper">
               <button class="btn outline bg-black" value="{{item.id}}"  (click)="detailsProduct($event)" >DETAILS</button>
               <button class="btn fill bg-black" (click)="addToCart(item) " >BUY NOW</button>
+          
             </div>
           </div>
         </div>
@@ -59,14 +66,11 @@
       }
     </div>
   }
-
-//loder
-
   @if (!loder) {
+    
     <div class="text-center w-100 p-5">
       <app-spiner></app-spiner>
     </div>
-
    
   }
 </div>

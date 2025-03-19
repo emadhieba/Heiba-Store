@@ -18,8 +18,9 @@ import { SharedModuleModule } from '../shared/shared-module/shared-module.module
 })
 export class HomeComponent implements OnInit {
 
-
+adeddTowCart:boolean=false;
   Sale_product:any[]=[];
+
   constructor(private service:ProductsService)  {
     }
 
@@ -37,8 +38,10 @@ export class HomeComponent implements OnInit {
       if ('cart' in localStorage) {
         cart = JSON.parse(localStorage.getItem('cart')!);
         const exist = cart.find(product => product.id === item.id);
+        
         if (exist) {
-          exist.quantity += 1; // إذا كان المنتج موجودًا، زيادة الكمية
+          exist.quantity += 1;
+          this.adeddTowCart=true;
         } else {
           cart.push(item);
         }
@@ -46,7 +49,8 @@ export class HomeComponent implements OnInit {
         cart.push(item);
       }
       localStorage.setItem('cart', JSON.stringify(cart));
-      // alert(`تمت إضافة المنتج بكمية: ${item.quantity}`);
+      this.showCustomToast('Item added to cart!');
+
     }
   getProductByCatogey(){
     
@@ -94,7 +98,16 @@ export class HomeComponent implements OnInit {
     sr.reveal('.product__image img', { ...scrollRevealOption, origin: 'left' });
     sr.reveal('.product__card', { ...scrollRevealOption, delay: 500, interval: 500 });
   }
-
+  showCustomToast(message: string) {
+    const toast = document.getElementById('customToast');
+    if (toast) {
+      toast.textContent = message;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+  }
   // private initializeSwiper(): void {
   //   const swiperConfig: SwiperOptions = {
   //     loop: true,

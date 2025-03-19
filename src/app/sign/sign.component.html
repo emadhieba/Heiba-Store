@@ -1,0 +1,68 @@
+<div class="container mt-5" #container>
+
+	<div class="form-container sign-up-container">
+	  <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+		<h1>Create Account</h1>
+		<span>or use your email for registration</span>
+  
+		<input type="text" placeholder="Name" formControlName="name" required />
+		<span class="error" *ngIf="signUpForm.controls['name'].invalid && signUpForm.controls['name'].touched">
+		  Name is required.
+		</span>
+  
+		<input type="email" placeholder="Email" formControlName="email" required />
+		<span class="error" *ngIf="signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched">
+		  Please enter a valid email.
+		</span>
+
+		<input type="password" placeholder="Password" formControlName="password" required />
+		<span class="error" *ngIf="signUpForm.controls['password'].invalid && signUpForm.controls['password'].touched">
+		  Password must be at least 6 characters long.
+		</span>
+		<p class="error-message" *ngIf="apiErrorMessageS">{{ apiErrorMessageS }}</p>
+		<button type="submit" [hidden]="signUpForm.invalid">Sign Up</button>
+	  </form>
+	</div>
+  
+	<div class="form-container sign-in-container">
+	  <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+		<h1>Sign in</h1>
+		<span>or use your account</span>
+		
+		<input type="email" placeholder="Email" formControlName="email" required />
+		<span class="error" *ngIf="signInForm.controls['email'].invalid && signInForm.controls['email'].touched">
+		  Please enter a valid email.
+		</span>
+  
+		<input type="password" placeholder="Password" formControlName="password" required />
+		<span class="error" *ngIf="signInForm.controls['password'].invalid && signInForm.controls['password'].touched">
+		  Password must be at least 6 characters long.
+		</span>
+  
+		<a href="#" >Forgot your password?</a>
+		<p class="error-message" *ngIf="apiErrorMessage">{{ apiErrorMessage }}</p>
+
+		<button type="submit" [hidden]="signInForm.invalid">Sign In</button>
+	  </form>
+	</div>
+  
+  <div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome Back!</h1>
+			<p>To keep connected with us please login with your personal info</p>
+			<button class="ghost" #signIn>Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Hello, Friend!</h1>
+			<p>Enter your personal details and start journey with us</p>
+			<button class="ghost" #signUp>Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="mt-4">
+
+	<app-fotter ></app-fotter>
+</div>

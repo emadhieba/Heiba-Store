@@ -43,6 +43,16 @@ getProduct() {
   });
 
 }
+showCustomToast(message: string) {
+  const toast = document.getElementById('customToast');
+  if (toast) {
+    toast.textContent = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 3000);
+  }
+}
 getCategoriey() {
   this.loder=false;
   this.service.getAllCategories().subscribe((res: any) => {
@@ -138,7 +148,7 @@ addToCart(item: any) {
     cart.push(item);
   }
   localStorage.setItem('cart', JSON.stringify(cart));
-  // alert(`تمت إضافة المنتج بكمية: ${item.quantity}`);
+  this.showCustomToast('Item added to cart!');
 }
 
 

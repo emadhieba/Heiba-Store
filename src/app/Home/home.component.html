@@ -1,37 +1,48 @@
 
 
   <header class="section__container header__container" id="home">
+    
+
+    <div class="square_box box_three "></div>
+    <div class="square_box box_four"></div>
     <div class="header__image">
-      <img [src]="Sale_product[2].images"  />
-      <img [src]="Sale_product[2].images" class="header-bg" />
+     
+    
+      <img [src]="Sale_product[0].images"  />
+      <img [src]="Sale_product[0].images" class="header-bg" />
       <div class="header__image__content">
-        <h4>Price: ${{Sale_product[2].price}} </h4>
-        <button class="btn" (click)="addToCart(Sale_product[2]) ">Add to cart</button>
+        <h4>Price: ${{Sale_product[0].price}} </h4>
+        <div id="customToast" class="custom-toast">Item added to cart!</div>
+          <button class="btn" (click)="addToCart(Sale_product[0]) ">Add to cart</button>
+      
+     
       </div>
     </div>
     <div class="header__content">
-      <h1>Bluetooth<br />Headphone</h1>
+      <h1>{{Sale_product[0].title}}</h1>
       <p>
-        Dive into our curated selection of premium Bluetooth headphones,
-        crafted for the ultimate listening experience.
+        {{Sale_product[0].description
+        }}
       </p>
     </div>
+    
   </header>
+
 
   <section class="product" id="product">
     <div class="section__container product__container">
       <div class="product__grid">
         <div class="product__image">
-          <img [src]="Sale_product[7].images" />
+          <img [src]="Sale_product[5].images" />
         </div>
         <div class="product__content">
           <div class="product__card">
-            <h4>Bluetooth</h4>
-            <p>Bluetooth 4.2 - ACC codec</p>
+            <h4>{{Sale_product[5].title}}</h4>
+            <p>{{Sale_product[0].description}}</p>
             <a href="products/">Learn More</a>
           </div>
           <div class="product__card">
-            <h4>Quality sound</h4>
+            <h4>Quality </h4>
             <a href="products/">Learn More</a>
           </div>
           <div class="product__card">
@@ -46,9 +57,20 @@
           </div>
         </div>
       </div>
-      <div class="product__btn" (click)="addToCart(Sale_product[7]) ">
-        <button class="btn">Add to cart</button>
-      </div>
+      @if (adeddTowCart == false) {
+        <div class="product__btn" (click)="addToCart(Sale_product[5]) ">
+          <button class="btn">Add to cart</button>
+        </div>
+      }@else{
+        <div class="product__btn">
+          <button class="btn" routerLink="/products" routerLinkActive="active">
+            Go To Shop
+          </button>
+        </div>
+      
+        
+      }
+      
     </div>
 
 

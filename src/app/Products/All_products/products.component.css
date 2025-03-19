@@ -2,7 +2,7 @@
 
 
 body {
-  font-family: 'Warnes', cursive;
+ 
   /* solid background */
   background: rgb(0,212,255);  
   /* gradient background*/
@@ -181,14 +181,37 @@ p {
 
 .multi-button {
   display: flex;
-
-  border-radius: 15px;
-  box-shadow:  0px 0px 2px #ffffff;
-  background-color: #ffffffe5;
+  flex-wrap: wrap;
+  gap: 10px; /* يضيف مسافة بين الأزرار */
+  justify-content: center; /* يجعل الأزرار في المنتصف */
 }
+
+.custom-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 9999; /* 🔥 تأكد أنه فوق كل العناصر الأخرى */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.custom-toast.show {
+  display: block;
+  opacity: 1;
+}
+
+
 button {
-  font-family: 'Warnes', cursive;
-  font-size: 30px;
+  
+  font-size: 20px;
   margin: 0;
   padding: 15px 25px;
   background-color: #fdfdfd;
@@ -204,4 +227,21 @@ button:hover {
   background: #000000;
  text-shadow: 0 0px 0px transparent, 0 0 1px #ffffff, 0 0px 1px transparent, 0 0 0px #ffffff, 0 0 25px #ffffff, 0 0 0 #ffffff, 0 0 5px #ffffff, 0 0 6px #ffffff;
  border-radius: 15px;
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #000000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* يمكن تغييره حسب الحاجة */
 }
